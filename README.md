@@ -47,35 +47,6 @@ The system leverages **MongoDB, Express.js, React.js, Node.js** and integrates *
 
 ---
 
-## 💻 Code Snippet (Sample AI API Call)  
-
-```javascript
-// Example: AI Resume Feedback API call
-import express from "express";
-import fetch from "node-fetch";
-const router = express.Router();
-
-router.post("/resume-feedback", async (req, res) => {
-  const { resumeText } = req.body;
-  try {
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        model: "gpt-4",
-        messages: [{ role: "user", content: `Give feedback for this resume:\n${resumeText}` }],
-      }),
-    });
-    const data = await response.json();
-    res.json({ feedback: data.choices[0].message.content });
-  } catch (error) {
-    res.status(500).json({ error: "AI feedback failed" });
-  }
-});
-
 internship_progress:
   week_1:
     title: "Project Setup & Research"
@@ -154,5 +125,34 @@ author:
   linkedin: "https://www.linkedin.com/in/jaybhatt375453/"
   github: "https://github.com/jaybhatt375453"
 
+
+## 💻 Code Snippet (Sample AI API Call)  
+
+```javascript
+// Example: AI Resume Feedback API call
+import express from "express";
+import fetch from "node-fetch";
+const router = express.Router();
+
+router.post("/resume-feedback", async (req, res) => {
+  const { resumeText } = req.body;
+  try {
+    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        model: "gpt-4",
+        messages: [{ role: "user", content: `Give feedback for this resume:\n${resumeText}` }],
+      }),
+    });
+    const data = await response.json();
+    res.json({ feedback: data.choices[0].message.content });
+  } catch (error) {
+    res.status(500).json({ error: "AI feedback failed" });
+  }
+});
 
 export default router;
