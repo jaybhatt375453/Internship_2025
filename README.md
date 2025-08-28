@@ -1,147 +1,194 @@
-# 🌟 NextHire – AI-Powered Career Companion  
+# FRAS (Facial Recognition Attendance System) – Internship Report
+# Paste this file as, e.g., internship_report.yml in your GitHub repo.
 
-![NextHire Banner](https://img.shields.io/badge/NextHire-AI%20Career%20Companion-blueviolet?style=for-the-badge&logo=github)  
+meta:
+  title: "Facial Recognition Attendance System (FRAS)"
+  type: "Internship Report"
+  duration: "6 Weeks (Summer Internship 2025)"
+  intern:
+    name: "Jay Bhatt"
+    student_id: "22IT008"
+    institute: "CSPIT-IT"
+  mentor: "[Mentor Name / Replete Infotech Pvt Ltd]"
+  repository: "https://github.com/<your-username>/<your-repo>"
+  live_demo: "https://<your-deployment-link>"
+  company: "Replete Infotech Pvt Ltd"
 
-## 📑 Internship Report  
-- **🎯 Title**: AI-Powered Career Companion (NextHire) – MERN + LLM Internship  
-- **⏳ Duration**: 6 Weeks (Summer Internship 2025)  
-- **👨‍🎓 Intern**: Jay Bhatt (22IT008)  
-- **🏫 Institute**: CSPIT-IT  
-- **💻 Mentor**: [Mentor Name / Organization if available]  
-- **📂 Repository**: [GitHub Repo Link](https://github.com/jaybhatt375453)  
-- **🔗 Live Demo**: [Project Deployment Link](https://next-hire-demo.vercel.app/)  
+company_description: |
+  Replete Infotech Pvt Ltd is a leading IT company that provides technical solutions and services which strive to provide innovative and client-focused solutions, helping the customers modernise their networks inorder to providing excellence while ensuring quality customer service with our expert team, advanced technologies, and seamless processes. Replete Infotech Pvt Ltd strive to solve digital problems around us. From technology consulting to IT Services, they deliver the most innovative solutions with exceptional business value.
+  Replete Infotech Pvt Ltd is one of the premium companies of India offering quality IT and ITES solutions to meet the new business challenges of the extremely competitive market. Their forte lies in product development and they have proved the same by successfully developing innovative products from time to time. They boast of a strong team of professionals who are certified developers with excellence in various IT fields to offer a bouquet of valuable services under a single roof. They are extremely committed to offer quality driven services and products to our worldwide clientele.
 
----
+chapters:
+  - chapter: 1
+    title: "INTRODUCTION TO PROJECT"
+    sections:
+      - number: "1.1"
+        title: "OBJECTIVE"
+        content: |
+          The objective of this project is to develop a comprehensive process of a facial recognition system using Python, showcasing the various stages involved from face detection to face recognition. This report aims to provide an in-depth understanding of the key packages and tools available in Python for facial recognition, the methods to improve accuracy, and the industry-standard practices employed. By detailing the implementation and evaluation of a facial recognition system, this report seeks to demonstrate the practical applications and potential improvements in this transformative technology across different industries.
+      - number: "1.2"
+        title: "DEFINITION"
+        content: |
+          Facial recognition is a sophisticated biometric technology that identifies or verifies individuals by analysing and comparing unique patterns based on their facial features. This technology utilizes advanced computer vision and machine learning algorithms to detect, align, encode, and match faces in images or video streams. The facial recognition process involves several critical steps: face detection to identify areas with faces, face alignment to standardize the orientation, face encoding to convert facial features into numerical codes, and face matching to compare these codes and determine identity.
+          In the context of this report, facial recognition is implemented using Python's extensive ecosystem of libraries, including OpenCV, which offers versatile face detection algorithms, Dlib, known for its efficient face detection and shape prediction, and Face_recognition, which simplifies face recognition tasks. Facial recognition technology is widely applied in various fields, providing accurate and reliable identification solutions for security, surveillance, and human-computer interaction, thereby enhancing safety and user experience.
 
-## 📌 Project Overview  
-NextHire is an **AI-powered career companion** built using the **MERN stack** integrated with **Large Language Models (LLMs)**.  
-It helps students and professionals with:  
-- Resume building suggestions.  
-- Interview preparation (Q&A with AI).  
-- Skill-based career guidance.  
-- Real-time job recommendations.  
+  - chapter: 2
+    title: "PROJECT DESCRIPTION"
+    content: |
+      This project focuses on developing a robust and accurate facial recognition system using Python, leveraging its comprehensive ecosystem of libraries and tools. Facial recognition has revolutionized numerous industries, including security, surveillance, and human computer interaction, by providing reliable and efficient identification solutions. The project aims to explore and implement the various stages involved in facial recognition, from face detection to face recognition, using well-known Python libraries such as OpenCV, Dlib, and Face_recognition.
+      The project is divided into several key components, each addressing a specific aspect of the facial recognition process.
 
-The system leverages **MongoDB, Express.js, React.js, Node.js** and integrates **LLMs** through APIs for natural language interaction.  
+    frontend_features:
+      - "Sign-Up Page: Employees register with name, employee ID, mobile number, and email."
+      - "Photo Upload: Employees upload photos required for recognition."
+      - "Email Verification: OTP is sent via SMTP; user verifies email."
+      - "Face Matching: Webcam capture compared to stored images."
+      - "Punch In/Out and Break In/Out: Mark attendance and breaks."
+      - "Geo-Tagging: Validates employee location during attendance."
 
----
+    frontend_stack:
+      - "HTML/CSS"
+      - "JavaScript"
+      - "Flask (templating + routes)"
 
-# 📑 Internship Journey – Week by Week & Day by Day
+    database_design:
+      engine: "MySQL"
+      entities:
+        - name: "employees"
+          fields: ["id", "name", "employee_id", "mobile", "email", "photo_longblob", "created_at"]
+        - name: "attendance_logs"
+          fields: ["id", "employee_id", "type (punch_in|punch_out|break_in|break_out)", "timestamp", "geotag_lat", "geotag_lng"]
+        - name: "otps"
+          fields: ["id", "email", "otp_code", "expires_at", "consumed (bool)"]
+      notes: |
+        Photos are stored as LONG_BLOB. Indexes on employee_id and email improve lookup performance.
 
+    backend_features:
+      - "Image Capture & Processing with OpenCV."
+      - "Face Matching using Face_recognition (Dlib) encodings."
+      - "Similarity thresholds with Euclidean/Cosine metrics."
+      - "SMTP integration for OTP email verification."
+      - "Secure routes for attendance events and logs."
 
-```yml
-weeks:
-  - week: 1
-    theme: "Getting Started – Setup & Planning"
-    days:
-      day1: "Introduction to internship, finalized project title & scope."
-      day2: "Set up GitHub repo & local MERN environment."
-      day3: "Installed dependencies (React, Node, MongoDB, TailwindCSS)."
-      day4: "Studied project requirements, prepared architecture plan."
-      day5: "Explored LLM APIs & feasibility for integration."
-      day6: "Created initial README and documentation."
-      day7: "Team sync & summary of week’s work."
+    recognition_pipeline:
+      steps:
+        - "Face Detection (Haar Cascades/Dlib HOG/CNN)."
+        - "Face Alignment (landmarks-based)."
+        - "Face Encoding (128-d embeddings)."
+        - "Face Matching (Euclidean distance + threshold)."
+      threshold_tuning: |
+        The decision threshold balances false positives and false negatives. Multiple samples per user and lighting normalization improve robustness.
 
-  - week: 2
-    theme: "Frontend Foundations"
-    days:
-      day1: "Built React project scaffold with Vite."
-      day2: "Added Home Page with navigation (Login, Signup)."
-      day3: "Designed UI using TailwindCSS + Material UI."
-      day4: "Implemented reusable components (Navbar, Footer, Cards)."
-      day5: "Setup routes with React Router."
-      day6: "Basic state management with Context API."
-      day7: "Weekly demo & code push to GitHub."
+project_overview: |
+  The Facial Recognition Attendance System (FRAS) is an AI-powered attendance solution built with Python, Flask, MySQL, OpenCV, Dlib, and Face_recognition. It automates employee attendance with OTP-verified signup, webcam-based recognition, geotag validation, and reliable punch/break logging.
 
-  - week: 3
-    theme: "Backend Development & Database"
-    days:
-      day1: "Initialized Node.js + Express server."
-      day2: "Setup MongoDB Atlas & tested CRUD operations."
-      day3: "Created user schema & authentication model."
-      day4: "Implemented JWT-based login/signup API."
-      day5: "Connected frontend forms with backend APIs."
-      day6: "Tested APIs using Postman."
-      day7: "Code cleanup & documentation."
+internship_journey:
+  weeks:
+    - week: 1
+      theme: "Setup & Understanding Basics"
+      days:
+        day1: "Introduction to internship & company profile (Replete Infotech Pvt Ltd)."
+        day2: "Finalized project title and requirements."
+        day3: "Explored Python libraries for face recognition (OpenCV, Dlib, Face_recognition)."
+        day4: "Studied Flask framework basics."
+        day5: "Installed dependencies and set up local environment."
+        day6: "Designed high-level architecture of FRAS system."
+        day7: "Prepared weekly documentation and synced with mentor."
 
-  - week: 4
-    theme: "LLM & AI Integration"
-    days:
-      day1: "Explored OpenAI/LLM APIs for career suggestions."
-      day2: "Built API wrapper for recommendation system."
-      day3: "Integrated chatbot-like career Q&A."
-      day4: "Tested career recommendation prompts."
-      day5: "Connected frontend chat UI to backend LLM API."
-      day6: "Optimized API calls & error handling."
-      day7: "Weekly review + commit."
+    - week: 2
+      theme: "Frontend & User Registration Module"
+      days:
+        day1: "Created basic frontend pages with HTML/CSS/JS."
+        day2: "Developed Signup page with employee details form."
+        day3: "Integrated photo upload feature."
+        day4: "Implemented email OTP verification using SMTP."
+        day5: "Tested validation for email & form submissions."
+        day6: "Connected frontend forms with Flask backend APIs."
+        day7: "Weekly review & commit to GitHub."
 
-  - week: 5
-    theme: "Enhancements & Deployment"
-    days:
-      day1: "UI polishing – improved dashboard design."
-      day2: "Added progress tracker for user profile."
-      day3: "Worked on resume analysis & job matching feature."
-      day4: "Integrated LinkedIn API (basic fetch)."
-      day5: "Prepared app for deployment."
-      day6: "Deployed frontend on Vercel & backend on Render."
-      day7: "Team review, testing on live environment."
+    - week: 3
+      theme: "Database & Backend Core Setup"
+      days:
+        day1: "Designed MySQL schema for employee data, photos, and attendance logs."
+        day2: "Implemented user registration & OTP storage in database."
+        day3: "Created Flask routes for signup/login."
+        day4: "Tested CRUD operations with MySQL."
+        day5: "Optimized photo storage in LONG_BLOB format."
+        day6: "Worked on Punch In/Out backend logic."
+        day7: "Documentation & team sync."
 
-  - week: 6
-    theme: "Finalization & Reporting"
-    days:
-      day1: "Fixed minor bugs & improved UI responsiveness."
-      day2: "Added error boundaries & loading states."
-      day3: "Wrote detailed README + documentation."
-      day4: "Prepared presentation slides."
-      day5: "Conducted final testing with mentors."
-      day6: "Submitted final report & blog."
-      day7: "Internship presentation & wrap-up."
+    - week: 4
+      theme: "Face Recognition Engine"
+      days:
+        day1: "Integrated webcam image capture with OpenCV."
+        day2: "Applied face detection using Haar Cascades & Dlib."
+        day3: "Implemented facial encoding with Face_recognition library."
+        day4: "Face matching using Euclidean distance threshold."
+        day5: "Optimized accuracy with multiple images per user & lighting tests."
+        day6: "Tested live recognition with database images."
+        day7: "Weekly review & bug fixing."
 
+    - week: 5
+      theme: "Attendance System Features"
+      days:
+        day1: "Implemented Punch In/Out and Break In/Out tracking."
+        day2: "Added Geo-tagging support for location validation."
+        day3: "Developed dashboard views for attendance logs."
+        day4: "UI improvements for employee interaction."
+        day5: "Backend validations for duplicate entries & time rules."
+        day6: "Conducted system testing with sample users."
+        day7: "Weekly summary & mentor review."
 
-        
-## ⚡ Key Features  
-✅ User Authentication (Login/Signup with JWT & Google OAuth)  
-✅ AI-Powered Resume Feedback  
-✅ Interview Q&A Simulator (LLM-based)  
-✅ Personalized Career Suggestions  
-✅ Interactive Dashboard (React + Tailwind)  
-✅ Backend API (Node.js + Express.js + MongoDB)  
-✅ Deployment on Vercel / Render  
+    - week: 6
+      theme: "Finalization & Deployment"
+      days:
+        day1: "Fixed bugs & improved UI responsiveness."
+        day2: "Security enhancements (password hashing, input validation)."
+        day3: "Prepared deployment setup (Flask + MySQL)."
+        day4: "Finalized project report & documentation."
+        day5: "Conducted final testing with mentors."
+        day6: "Submitted final project & presentation."
+        day7: "Internship wrap-up & feedback session."
 
----
+key_features:
+  - "Employee Registration with Photo Upload"
+  - "Email OTP Verification (SMTP)"
+  - "Real-time Face Recognition via Webcam"
+  - "Attendance Logging (Punch In/Out, Break In/Out)"
+  - "Geo-tagging for Location Validation"
+  - "MySQL Database with Secure Data Storage"
+  - "Flask-based Backend with HTML/CSS/JS Frontend"
 
-## 🛠️ Tech Stack  
+tech_stack:
+  frontend: ["HTML", "CSS", "JavaScript"]
+  backend: ["Python", "Flask"]
+  database: ["MySQL"]
+  libraries: ["OpenCV", "Dlib", "Face_recognition", "NumPy"]
+  authentication: ["Email OTP (SMTP)"]
+  deployment: ["Localhost", "Optional: Cloud/VM"]
 
-**Frontend**: React.js, Tailwind CSS  
-**Backend**: Node.js, Express.js  
-**Database**: MongoDB Atlas  
-**AI Integration**: OpenAI API (LLM integration)  
-**Authentication**: JWT, Google OAuth 2.0  
-**Deployment**: Vercel (Frontend), Render (Backend)  
-
----
 results:
-  - "Functional AI-powered dashboard."
-  - "Resume feedback accuracy improved with prompt engineering."
-  - "Users successfully tested Interview Q&A bot."
-  - "Smooth integration between MERN stack + LLMs."
+  - "Functional facial recognition attendance system built and tested."
+  - "High recognition accuracy achieved with multiple samples per user."
+  - "Secure OTP verification and geolocation validation implemented."
+  - "Automated logging reduces manual errors and proxy attendance."
 
 future_work:
-  - "Add Job Scraping + AI Matching system."
-  - "Implement Voice-based Interview Simulator."
-  - "Add Multilingual Support for career guidance."
-  - "Enhance UI/UX with analytics & progress tracking."
+  - "Multi-factor authentication (biometrics + OTP)."
+  - "Cloud storage & CDN for image management."
+  - "Admin dashboard with analytics and exportable reports."
+  - "Mobile app integration for remote check-ins."
+  - "Emotion/mood detection module (responsible AI considerations)."
 
-acknowledgments: >
-  I sincerely thank my mentors, faculty members, and peers for their guidance 
-  and support during this internship. Special thanks to OpenAI, MongoDB Atlas, 
-  and Vercel for providing powerful tools to make this project possible.
+acknowledgments: |
+  I sincerely thank Replete Infotech Pvt Ltd, my mentors, faculty members, and peers for their guidance and support during this internship. Special thanks to the open-source community for Python, OpenCV, Flask, and MySQL for providing powerful tools that made this project possible.
 
 references:
-  - "MongoDB Documentation"
-  - "React Documentation"
-  - "Express.js Guide"
-  - "OpenAI API Reference"
-  - "TailwindCSS Docs"
+  - "OpenCV Documentation"
+  - "Flask Documentation"
+  - "MySQL Official Docs"
+  - "Dlib & Face_recognition Libraries"
+  - "Python smtplib Documentation"
 
 author:
   name: "Jay Bhatt"
@@ -149,34 +196,88 @@ author:
   linkedin: "https://www.linkedin.com/in/jaybhatt375453/"
   github: "https://github.com/jaybhatt375453"
 
+sample_code:
+  flask_otp_route: |
+    # Example: Flask route to send OTP via SMTP (simplified)
+    import os
+    import smtplib
+    import random
+    from email.mime.text import MIMEText
+    from flask import Flask, request, jsonify
+    import mysql.connector
+    from datetime import datetime, timedelta
 
-## 💻 Code Snippet (Sample AI API Call)  
+    app = Flask(__name__)
 
-```javascript
-// Example: AI Resume Feedback API call
-import express from "express";
-import fetch from "node-fetch";
-const router = express.Router();
+    def db():
+      return mysql.connector.connect(
+          host=os.getenv("DB_HOST","localhost"),
+          user=os.getenv("DB_USER","root"),
+          password=os.getenv("DB_PASS",""),
+          database=os.getenv("DB_NAME","fras")
+      )
 
-router.post("/resume-feedback", async (req, res) => {
-  const { resumeText } = req.body;
-  try {
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        model: "gpt-4",
-        messages: [{ role: "user", content: `Give feedback for this resume:\n${resumeText}` }],
-      }),
-    });
-    const data = await response.json();
-    res.json({ feedback: data.choices[0].message.content });
-  } catch (error) {
-    res.status(500).json({ error: "AI feedback failed" });
-  }
-});
+    @app.post("/auth/send-otp")
+    def send_otp():
+      email = request.json.get("email")
+      if not email:
+        return jsonify({"error":"email required"}), 400
 
-export default router;
+      code = str(random.randint(100000, 999999))
+      expires_at = (datetime.utcnow() + timedelta(minutes=10)).strftime("%Y-%m-%d %H:%M:%S")
+
+      conn = db(); cur = conn.cursor()
+      cur.execute("INSERT INTO otps (email, otp_code, expires_at, consumed) VALUES (%s,%s,%s,%s)",
+                  (email, code, expires_at, False))
+      conn.commit(); cur.close(); conn.close()
+
+      msg = MIMEText(f"Your FRAS OTP is: {code}. It expires in 10 minutes.")
+      msg["Subject"] = "FRAS Email Verification OTP"
+      msg["From"] = os.getenv("SMTP_FROM")
+      msg["To"] = email
+
+      with smtplib.SMTP_SSL(os.getenv("SMTP_HOST","smtp.gmail.com"), int(os.getenv("SMTP_PORT","465"))) as s:
+        s.login(os.getenv("SMTP_USER"), os.getenv("SMTP_PASS"))
+        s.send_message(msg)
+
+      return jsonify({"message":"OTP sent"})
+
+  recognition_snippet: |
+    # Example: Face encoding & matching with face_recognition
+    import cv2
+    import face_recognition
+    import numpy as np
+
+    # Load known images (from DB or filesystem)
+    known_images = [
+      ("EMP001", face_recognition.load_image_file("samples/emp001_1.jpg")),
+      ("EMP002", face_recognition.load_image_file("samples/emp002_1.jpg")),
+    ]
+    known_encodings = []
+    known_labels = []
+    for label, img in known_images:
+      encs = face_recognition.face_encodings(img)
+      if encs:
+        known_encodings.append(encs[0])
+        known_labels.append(label)
+
+    # Capture frame from webcam
+    cap = cv2.VideoCapture(0)
+    ret, frame = cap.read()
+    cap.release()
+
+    rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    boxes = face_recognition.face_locations(rgb, model="hog")  # or "cnn"
+    encodings = face_recognition.face_encodings(rgb, boxes)
+
+    match_label = None
+    threshold = 0.5  # tune this value based on validation
+
+    for enc in encodings:
+      distances = face_recognition.face_distance(known_encodings, enc)
+      idx = np.argmin(distances) if len(distances) else None
+      if idx is not None and distances[idx] <= threshold:
+        match_label = known_labels[idx]
+        break
+
+    print("Match:", match_label if match_label else "No match")
