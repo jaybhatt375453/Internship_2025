@@ -1,269 +1,160 @@
-# ==============================================
-#  FRAS (Facial Recognition Attendance System)
-#  Internship Report - Summer Internship 2025
-#  Author: Jay Bhatt (22IT008 | CSPIT-IT)
-# ==============================================
+# 💻 Summer Internship 2025 – FRAS (Facial Recognition Attendance System)
 
-meta:
-  title: "Facial Recognition Attendance System (FRAS)"
-  type: "Internship Report"
-  duration: "6 Weeks (Summer Internship 2025)"
-  intern:
-    name: "Jay Bhatt"
-    student_id: "22IT008"
-    institute: "CSPIT-IT"
-  mentor: "[Mentor Name / Replete Infotech Pvt Ltd]"
-  repository: "https://github.com/<your-username>/<your-repo>"
-  live_demo: "https://<your-deployment-link>"
-  company: "Replete Infotech Pvt Ltd"
+Welcome to my **GitHub repository** for the Summer Internship at **Replete Infotech Pvt Ltd**.  
+This project showcases my work on **FRAS – Facial Recognition Attendance System** using **Python, Flask, MySQL, OpenCV, and Dlib** during my **6-week internship**.  
 
-company_description: |
-  Replete Infotech Pvt Ltd is a leading IT company providing innovative digital solutions, modernizing business networks, and delivering exceptional client-centric IT services. 
-  With expertise in **technology consulting, IT services, and product development**, the company specializes in building robust software solutions using modern technologies. 
-  Their strength lies in a highly skilled team of certified developers, who deliver quality-driven solutions across domains such as **cloud computing, artificial intelligence, data analytics, and web technologies**. 
-  Replete Infotech Pvt Ltd has established itself as a trusted partner for businesses aiming to thrive in today’s competitive digital landscape.
+---
 
-chapters:
-  - chapter: 1
-    title: "INTRODUCTION TO PROJECT"
-    sections:
-      - number: "1.1"
-        title: "Objective"
-        content: |
-          The objective of this project is to design and implement a **Facial Recognition Attendance System (FRAS)** using Python and modern libraries. 
-          The system automates employee attendance tracking with face recognition, OTP-based verification, and geolocation validation. 
-          This project aims to highlight the potential of AI-powered attendance systems in **reducing proxy attendance, improving accuracy, and enhancing workplace security.**
-      - number: "1.2"
-        title: "Definition"
-        content: |
-          Facial recognition is a **biometric identification technique** that verifies individuals by analyzing unique facial patterns. 
-          It uses advanced algorithms for:
-            - **Face Detection** (locating faces in images/video),
-            - **Face Alignment** (normalizing positions),
-            - **Face Encoding** (numerical representation of features),
-            - **Face Matching** (comparison with stored encodings).
-          In this project, Python libraries such as **OpenCV, Dlib, and Face_recognition** are used to achieve high-accuracy recognition.
-          Applications extend to **security, surveillance, authentication systems, and time/attendance automation.**
+## 📌 Project Overview
+The **Facial Recognition Attendance System (FRAS)** is an AI-powered solution that automates employee attendance with:
+- 🔐 OTP-verified signup (SMTP email verification)  
+- 📷 Webcam-based real-time face recognition  
+- 📍 Geo-tagging for location validation  
+- ⏱ Punch In/Out & Break In/Out tracking  
+- 🗄 Secure MySQL database for attendance logs  
 
-  - chapter: 2
-    title: "PROJECT DESCRIPTION"
-    content: |
-      The **FRAS Project** is divided into modular components for frontend, backend, and recognition logic. 
-      It is built using **Python, Flask, MySQL, and AI-based recognition libraries.** 
-      The system ensures secure attendance tracking with features like OTP authentication, webcam-based recognition, punch/break logs, and geotagging.
+---
 
-    frontend_features:
-      - "Sign-Up Page: Employee registration with details and photo upload."
-      - "Email OTP Verification: Secure email validation via SMTP."
-      - "Face Matching: Real-time webcam-based recognition."
-      - "Punch In/Out & Break In/Out: Attendance and work-break tracking."
-      - "Geo-Tagging: Ensures employee is at designated location."
+## 🏢 Company: Replete Infotech Pvt Ltd
+Replete Infotech Pvt Ltd is a leading IT company delivering innovative **IT & ITES solutions**.  
+They specialize in **product development, technology consulting, and IT services**, offering modern, client-focused solutions.  
+With a strong team of certified professionals, they aim to solve digital challenges and deliver excellence in technology.  
 
-    frontend_stack:
-      - "HTML5 / CSS3"
-      - "JavaScript (Validation, UI Interaction)"
-      - "Flask (Templating & Routing)"
+---
 
-    database_design:
-      engine: "MySQL"
-      entities:
-        - name: "employees"
-          fields: ["id", "name", "employee_id", "mobile", "email", "photo_longblob", "created_at"]
-        - name: "attendance_logs"
-          fields: ["id", "employee_id", "type (punch_in|punch_out|break_in|break_out)", "timestamp", "geotag_lat", "geotag_lng"]
-        - name: "otps"
-          fields: ["id", "email", "otp_code", "expires_at", "consumed (bool)"]
-      notes: |
-        - Photos stored as **LONG_BLOB**.  
-        - Indexes on `employee_id` and `email` improve search performance.  
-        - Attendance logs linked with employee IDs for traceability.  
+# 🚀 Internship Journey  
 
-    backend_features:
-      - "Image Capture & Preprocessing with OpenCV."
-      - "Face Recognition using Dlib & Face_recognition encodings."
-      - "Distance-based face matching (Euclidean threshold)."
-      - "SMTP-based OTP authentication."
-      - "Flask REST routes for attendance events."
+## 📖 Week 1 – Setup & Basics
+<ul>
+  <li>Company Introduction & Project Aim</li>
+  <li>Studied Python libraries for face recognition (OpenCV, Dlib, face_recognition)</li>
+  <li>Explored Flask framework basics</li>
+  <li>Environment setup & high-level system architecture</li>
+</ul>
 
-    recognition_pipeline:
-      steps:
-        - "Face Detection → Haar Cascades / Dlib HOG"
-        - "Face Alignment → Landmark correction"
-        - "Face Encoding → 128-d embeddings"
-        - "Face Matching → Euclidean distance threshold"
-      threshold_tuning: |
-        Thresholds are tuned to **minimize false positives/negatives**. 
-        Techniques such as **multiple sample images, lighting normalization, and angle adjustments** were applied to boost accuracy.
+<h3>Day-1 (12th May)</h3> Introduction to the company, teammates, and mentor.  
+<h3>Day-2 (13th May)</h3> Finalized project requirements and workflow (FRAS).  
+<h3>Day-3 (14th May)</h3> Designed high-level system architecture (Figma).  
+<h3>Day-4 (15th May)</h3> Learned Python basics for project.  
+<h3>Day-5 (16th May)</h3> Installed Flask & dependencies.  
+<h3>Day-6 (17th May)</h3> Environment setup for FRAS.  
+<h3>Day-7 (18th May)</h3> Documentation & weekly review.  
 
-project_overview: |
-  FRAS provides an **AI-powered attendance solution** that integrates:
-    - OTP-verified signup,
-    - Real-time face recognition,
-    - Secure database logging,
-    - Location-based validation.  
-  Built with **Flask, Python, MySQL, OpenCV, and Face_recognition**, it ensures an accurate and reliable replacement for traditional attendance systems.
+---
 
-internship_journey:
-  weeks:
-    - week: 1
-      theme: "Setup & Basics"
-      highlights:
-        - Company induction & project briefing
-        - Environment setup (Python, Flask, MySQL, OpenCV)
-        - Research on facial recognition techniques
-    - week: 2
-      theme: "Frontend Development"
-      highlights:
-        - Built Signup & Login pages
-        - Integrated email OTP validation
-        - Linked frontend with Flask routes
-    - week: 3
-      theme: "Database & API Integration"
-      highlights:
-        - Designed MySQL schema for employees, OTPs, and logs
-        - Integrated database CRUD with Flask
-        - Developed attendance APIs
-    - week: 4
-      theme: "Face Recognition Module"
-      highlights:
-        - Implemented detection & encoding
-        - Optimized recognition pipeline
-        - Tested accuracy with multiple users
-    - week: 5
-      theme: "Attendance Features"
-      highlights:
-        - Added Punch & Break In/Out
-        - Integrated Geo-tagging validation
-        - Created dashboard for logs
-    - week: 6
-      theme: "Finalization & Deployment"
-      highlights:
-        - Bug fixes & UI improvements
-        - Deployment-ready build
-        - Final presentation & documentation
+## 📖 Week 2 – Frontend & User Registration
+<ul>
+  <li>Developed frontend pages (HTML, CSS, JS)</li>
+  <li>Signup form with employee details</li>
+  <li>Photo upload & OTP verification using SMTP</li>
+  <li>Frontend connected with Flask backend APIs</li>
+</ul>
 
-key_features:
-  - "Employee Registration with Photo Upload"
-  - "Secure OTP-based Email Verification"
-  - "Webcam-based Real-time Face Recognition"
-  - "Punch In/Out & Break In/Out Tracking"
-  - "Geo-tagging for Location Validation"
-  - "MySQL Database for Logs & User Data"
-  - "Flask-based RESTful Backend"
+<h3>Day-8 (19th May)</h3> Created frontend signup page.  
+<h3>Day-9 (20th May)</h3> Integrated photo upload feature.  
+<h3>Day-10 (21st May)</h3> Implemented OTP-based email verification.  
+<h3>Day-11 (22nd May)</h3> Connected frontend with Flask routes.  
+<h3>Day-12 (23rd May)</h3> Validations for forms & email.  
+<h3>Day-13 (24th May)</h3> Testing user registration.  
+<h3>Day-14 (25th May)</h3> Weekly review & commit to GitHub.  
 
-tech_stack:
-  frontend: ["HTML5", "CSS3", "JavaScript"]
-  backend: ["Python", "Flask"]
-  database: ["MySQL"]
-  libraries: ["OpenCV", "Dlib", "Face_recognition", "NumPy"]
-  authentication: ["SMTP (Email OTP)"]
-  deployment: ["Localhost", "Cloud-ready (VM/Heroku/Docker)"]
+---
 
-results:
-  - "Successfully built a functional attendance system."
-  - "Achieved >90% recognition accuracy with optimized threshold."
-  - "Reduced risk of proxy attendance with AI-driven validation."
-  - "Secured workflow with OTP & geo-validation."
+## 📖 Week 3 – Database & Backend
+<ul>
+  <li>Designed MySQL schema (employees, attendance_logs, OTPs)</li>
+  <li>Stored photos as LongBlob</li>
+  <li>Implemented CRUD operations</li>
+  <li>Punch In/Out backend logic</li>
+</ul>
 
-future_work:
-  - "Multi-factor authentication (Face + OTP + RFID)."
-  - "Cloud-based image storage with CDN."
-  - "Admin Dashboard with Analytics & Reports."
-  - "Mobile App Integration for remote check-ins."
-  - "AI-powered Emotion Detection (Ethical Considerations)."
+<h3>Day-15 (26th May)</h3> Designed MySQL schema.  
+<h3>Day-16 (27th May)</h3> Integrated DB with Flask routes.  
+<h3>Day-17 (28th May)</h3> OTP storage & validation.  
+<h3>Day-18 (29th May)</h3> CRUD operations tested.  
+<h3>Day-19 (30th May)</h3> Stored employee photos in DB.  
+<h3>Day-20 (31st May)</h3> Punch In/Out backend logic.  
+<h3>Day-21 (1st June)</h3> Documentation & sync with mentor.  
 
-acknowledgments: |
-  I sincerely thank **Replete Infotech Pvt Ltd**, my mentors, and faculty at CSPIT-IT for their support and guidance.  
-  Special gratitude to the **open-source community** of Python, Flask, OpenCV, Dlib, and Face_recognition for providing powerful libraries that made this project possible.
+---
 
-references:
-  - "OpenCV Documentation"
-  - "Flask Framework Docs"
-  - "MySQL Official Documentation"
-  - "Dlib & Face_recognition Library Guides"
-  - "Python SMTP (smtplib) Docs"
+## 📖 Week 4 – Face Recognition Engine
+<ul>
+  <li>Integrated OpenCV webcam capture</li>
+  <li>Face detection (Haar Cascades, Dlib)</li>
+  <li>Face encoding (128-d embeddings)</li>
+  <li>Face matching with Euclidean distance</li>
+</ul>
 
-author:
-  name: "Jay Bhatt"
-  portfolio: "https://jaybhatt375453.github.io"
-  linkedin: "https://www.linkedin.com/in/jaybhatt375453/"
-  github: "https://github.com/jaybhatt375453"
+<h3>Day-22 (2nd June)</h3> Implemented face detection.  
+<h3>Day-23 (3rd June)</h3> Added face encoding & recognition.  
+<h3>Day-24 (4th June)</h3> Tuned similarity thresholds.  
+<h3>Day-25 (5th June)</h3> Tested recognition with multiple images.  
+<h3>Day-26 (6th June)</h3> Live recognition via webcam.  
+<h3>Day-27 (7th June)</h3> Debugging & optimization.  
+<h3>Day-28 (8th June)</h3> Weekly review & fixes.  
 
-sample_code:
-  flask_otp_route: |
-    # Flask OTP Sending (SMTP + MySQL Integration)
-    import os, smtplib, random, mysql.connector
-    from flask import Flask, request, jsonify
-    from email.mime.text import MIMEText
-    from datetime import datetime, timedelta
+---
 
-    app = Flask(__name__)
+## 📖 Week 5 – Attendance Features
+<ul>
+  <li>Punch In/Out & Break tracking</li>
+  <li>Geo-tagging with location validation</li>
+  <li>Attendance dashboard UI</li>
+  <li>Duplicate entry prevention</li>
+</ul>
 
-    def db():
-        return mysql.connector.connect(
-            host=os.getenv("DB_HOST","localhost"),
-            user=os.getenv("DB_USER","root"),
-            password=os.getenv("DB_PASS",""),
-            database=os.getenv("DB_NAME","fras")
-        )
+<h3>Day-29 (9th June)</h3> Implemented Punch In/Out logic.  
+<h3>Day-30 (10th June)</h3> Added Break In/Out tracking.  
+<h3>Day-31 (11th June)</h3> Integrated geo-tagging.  
+<h3>Day-32 (12th June)</h3> Developed dashboard views.  
+<h3>Day-33 (13th June)</h3> Backend validations.  
+<h3>Day-34 (14th June)</h3> Testing with sample users.  
+<h3>Day-35 (15th June)</h3> Mentor review & improvements.  
 
-    @app.post("/auth/send-otp")
-    def send_otp():
-        email = request.json.get("email")
-        if not email:
-            return jsonify({"error":"email required"}), 400
+---
 
-        code = str(random.randint(100000, 999999))
-        expires_at = (datetime.utcnow() + timedelta(minutes=10)).strftime("%Y-%m-%d %H:%M:%S")
+## 📖 Week 6 – Finalization & Deployment
+<ul>
+  <li>UI improvements & bug fixes</li>
+  <li>Security enhancements (hashing, validations)</li>
+  <li>Deployment setup (Flask + MySQL)</li>
+  <li>Final presentation & report submission</li>
+</ul>
 
-        conn = db(); cur = conn.cursor()
-        cur.execute("INSERT INTO otps (email, otp_code, expires_at, consumed) VALUES (%s,%s,%s,%s)",
-                    (email, code, expires_at, False))
-        conn.commit(); cur.close(); conn.close()
+<h3>Day-36 (16th June)</h3> Fixed UI responsiveness.  
+<h3>Day-37 (17th June)</h3> Applied password hashing & validations.  
+<h3>Day-38 (18th June)</h3> Deployment setup (local/VM).  
+<h3>Day-39 (19th June)</h3> Final testing & debugging.  
+<h3>Day-40 (20th June)</h3> Submitted project & wrap-up.  
 
-        msg = MIMEText(f"Your FRAS OTP is: {code}. It expires in 10 minutes.")
-        msg["Subject"] = "FRAS Email Verification OTP"
-        msg["From"] = os.getenv("SMTP_FROM")
-        msg["To"] = email
+---
 
-        with smtplib.SMTP_SSL(os.getenv("SMTP_HOST","smtp.gmail.com"), int(os.getenv("SMTP_PORT","465"))) as s:
-            s.login(os.getenv("SMTP_USER"), os.getenv("SMTP_PASS"))
-            s.send_message(msg)
+## ⚡ Key Features
+✅ Employee Registration with Photo Upload  
+✅ Email OTP Verification (SMTP)  
+✅ Real-time Face Recognition via Webcam  
+✅ Attendance Logging (Punch In/Out, Break In/Out)  
+✅ Geo-tagging for Location Validation  
+✅ MySQL Database with Secure Storage  
 
-        return jsonify({"message":"OTP sent successfully!"})
+---
 
-  recognition_snippet: |
-    # Face Recognition (OpenCV + Face_recognition)
-    import cv2, face_recognition, numpy as np
+## 🛠 Tech Stack
+- **Frontend**: HTML, CSS, JavaScript  
+- **Backend**: Python (Flask)  
+- **Database**: MySQL  
+- **Libraries**: OpenCV, Dlib, Face_recognition  
+- **Authentication**: Email OTP (SMTP)  
 
-    # Load known employee images
-    known_images = [
-        ("EMP001", face_recognition.load_image_file("samples/emp001.jpg")),
-        ("EMP002", face_recognition.load_image_file("samples/emp002.jpg")),
-    ]
-    known_encodings, known_labels = [], []
-    for label, img in known_images:
-        encs = face_recognition.face_encodings(img)
-        if encs:
-            known_encodings.append(encs[0])
-            known_labels.append(label)
+---
 
-    # Capture frame
-    cap = cv2.VideoCapture(0)
-    ret, frame = cap.read()
-    cap.release()
+## 🙌 Acknowledgments
+I sincerely thank **Replete Infotech Pvt Ltd**, my mentor, faculty members, and peers for their constant support and guidance throughout this internship.  
 
-    rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-    boxes = face_recognition.face_locations(rgb, model="hog")
-    encodings = face_recognition.face_encodings(rgb, boxes)
+---
 
-    match_label, threshold = None, 0.5
-    for enc in encodings:
-        distances = face_recognition.face_distance(known_encodings, enc)
-        if len(distances):
-            idx = np.argmin(distances)
-            if distances[idx] <= threshold:
-                match_label = known_labels[idx]
-                break
-
-    print("Recognition Result:", match_label if match_label else "No match found")
+## 🔗 Connect with Me
+- 🌐 [Portfolio](https://jaybhatt375453.github.io)  
+- 💼 [LinkedIn](https://www.linkedin.com/in/jaybhatt375453/)  
+- 🐙 [GitHub](https://github.com/jaybhatt375453)  
