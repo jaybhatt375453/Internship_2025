@@ -1,12 +1,12 @@
-# 💻 Summer Internship 2025 – FRAS (Facial Recognition Attendance System)
+# 💻 Summer Internship 2025 – AI-Driven Automation and Intelligence Systems for Real-World Applications
 
-Welcome to my **GitHub repository** for the Summer Internship at **Replete Infotech Pvt Ltd**.  
-This project showcases my work on **FRAS – Facial Recognition Attendance System** using **Python, Flask, MySQL, OpenCV, and Dlib** during my **6-week internship**.  
+Welcome to my **GitHub repository** for the Summer Internship .  
+This project showcases my work on **Recognition System** using **Python, Flask, MySQL, OpenCV, and Dlib** during my **6-week internship**.  
 
 ---
 
 ## 📌 Project Overview
-The **Facial Recognition Attendance System (FRAS)** is an AI-powered solution that automates employee attendance with:
+The **Recognition System ** is an AI-powered solution that automates employee attendance with:
 - 🔐 OTP-verified signup (SMTP email verification)  
 - 📷 Webcam-based real-time face recognition  
 - 📍 Geo-tagging for location validation  
